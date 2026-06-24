@@ -101,7 +101,7 @@ export default function MeetingsPage() {
       <MemberNav />
 
       {/* Tall dark header */}
-      <div className="bg-[#111111] px-6 pt-12 pb-0">
+      <div className="bg-[#111111] px-6 pt-12 pb-16">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#E61952] text-xs font-medium uppercase tracking-widest mb-2">Connect</p>
           <h1 className="text-3xl font-semibold text-white mb-1">Request a Meeting</h1>

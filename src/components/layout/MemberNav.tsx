@@ -16,8 +16,8 @@ export default function MemberNav() {
   return (
     <nav className="border-b border-[#E5E7EB] bg-white px-6 py-4">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
-        <Link href="/dashboard" className="text-lg font-bold text-[#111111]">
-          Nexti<span className="text-[#E61952]">corn</span>
+        <Link href="/dashboard">
+          <img src="/images/nxclogo.png" alt="Nexticorn" className="h-8 w-auto" />
         </Link>
         <div className="flex items-center gap-6">
           {links.map((link) => (

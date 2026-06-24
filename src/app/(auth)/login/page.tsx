@@ -18,10 +18,7 @@ export default function LoginPage() {
     setLoading(true)
     setError(null)
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
 
     if (error) {
       setError(error.message)
@@ -34,61 +31,57 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#F7F7F8] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-semibold text-white">Nexticorn</h1>
-          <p className="text-gray-400 mt-2 text-sm">Member portal</p>
+          <h1 className="text-2xl font-bold text-[#111111]">
+            Nexti<span className="text-[#E61952]">corn</span>
+          </h1>
+          <p className="text-[#6B7280] mt-2 text-sm">Member portal</p>
         </div>
 
-        <div className="bg-gray-900 rounded-xl border border-gray-800 p-8">
-          <h2 className="text-lg font-medium text-white mb-6">Sign in</h2>
+        <div className="bg-white rounded-xl border border-[#E5E7EB] p-8 shadow-sm">
+          <h2 className="text-lg font-semibold text-[#111111] mb-6">Sign in</h2>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block text-sm text-gray-400 mb-1.5">
-                Email
-              </label>
+              <label className="block text-sm text-[#6B7280] mb-1.5">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-gray-500"
+                className="w-full bg-white border border-[#E5E7EB] rounded-lg px-3 py-2.5 text-[#111111] text-sm placeholder-[#9CA3AF] focus:outline-none focus:border-[#E61952]"
                 placeholder="you@company.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm text-gray-400 mb-1.5">
-                Password
-              </label>
+              <label className="block text-sm text-[#6B7280] mb-1.5">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-gray-500"
+                className="w-full bg-white border border-[#E5E7EB] rounded-lg px-3 py-2.5 text-[#111111] text-sm placeholder-[#9CA3AF] focus:outline-none focus:border-[#E61952]"
                 placeholder="••••••••"
               />
             </div>
 
-            {error && (
-              <p className="text-red-400 text-sm">{error}</p>
-            )}
+            {error && <p className="text-[#E61952] text-sm">{error}</p>}
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-white text-gray-900 rounded-lg py-2.5 text-sm font-medium hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full bg-[#E61952] text-white rounded-lg py-2.5 text-sm font-medium hover:bg-[#C01544] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-500 mt-6">
+          <p className="text-center text-sm text-[#9CA3AF] mt-6">
             No account?{' '}
-            <Link href="/signup" className="text-gray-300 hover:text-white">
+            <Link href="/signup" className="text-[#E61952] hover:text-[#C01544]">
               Request access
             </Link>
           </p>

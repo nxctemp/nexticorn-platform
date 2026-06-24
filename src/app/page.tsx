@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HomePage() {
   return (
@@ -7,7 +8,7 @@ export default function HomePage() {
       {/* Nav */}
       <nav className="border-b border-[#E5E7EB] px-6 py-4 bg-white sticky top-0 z-10">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <img src="/images/nxclogo.png" alt="Nexticorn" className="h-14 w-auto" />
+          <Image src="/images/nxclogo.png" alt="Nexticorn" width={160} height={40} className="mx-auto" />
           <div className="flex items-center gap-6">
             <a href="#about" className="text-sm text-[#6B7280] hover:text-[#111111]">About</a>
             <a href="#summit" className="text-sm text-[#6B7280] hover:text-[#111111]">Summit</a>

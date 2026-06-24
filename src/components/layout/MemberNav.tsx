@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const links = [
   { href: '/dashboard', label: 'Dashboard' },
@@ -17,7 +18,7 @@ export default function MemberNav() {
     <nav className="border-b border-[#E5E7EB] bg-white px-6 py-4">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <Link href="/dashboard">
-          <img src="/images/nxclogo.png" alt="Nexticorn" className="h-8 w-auto" />
+          <Image src="/images/nxclogo.png" alt="Nexticorn" width={160} height={40} className="mx-auto" />
         </Link>
         <div className="flex items-center gap-6">
           {links.map((link) => (

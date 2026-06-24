@@ -140,7 +140,7 @@ export default function MeetingsPage() {
           )}
 
           {/* Tabs */}
-          <div className="flex gap-1">
+          <div className="inline-flex bg-white/10 rounded-full p-1 mb-0">
             {[
               { id: 'new', label: 'New Request' },
               { id: 'history', label: `My Requests${requests.length > 0 ? ` (${requests.length})` : ''}` },
@@ -148,9 +148,9 @@ export default function MeetingsPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'new' | 'history')}
-                className={`px-5 py-2.5 text-sm font-medium rounded-t-lg transition-colors ${
+                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                   activeTab === tab.id
-                    ? 'bg-[#F7F7F8] text-[#111111]'
+                    ? 'bg-white text-[#111111] shadow-sm'
                     : 'text-[#7F7F7F] hover:text-white'
                 }`}
               >
@@ -165,7 +165,7 @@ export default function MeetingsPage() {
 
         {/* New Request tab */}
         {activeTab === 'new' && (
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             {success ? (
               <div className="bg-white border border-[#E5E7EB] rounded-xl p-10 text-center shadow-sm">
                 <div className="w-12 h-12 bg-[#FEE2E2] rounded-full flex items-center justify-center mx-auto mb-4">

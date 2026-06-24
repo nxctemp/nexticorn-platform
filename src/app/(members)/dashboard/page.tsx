@@ -29,7 +29,7 @@ export default async function DashboardPage() {
       <MemberNav />
 
       {/* Welcome header */}
-      <div className="bg-[#111111] px-6 py-8">
+      <div className="bg-[#111111] px-6 py-14">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div>
             <p className="text-[#E61952] text-xs font-medium uppercase tracking-widest mb-1">Member Dashboard</p>

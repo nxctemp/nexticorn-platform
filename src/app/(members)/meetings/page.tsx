@@ -138,8 +138,12 @@ export default function MeetingsPage() {
               </div>
             </div>
           )}
+        </div>
+      </div>
 
-          {/* Tabs */}
+      <main className="max-w-5xl mx-auto px-6 py-8">
+
+          {/* Pill Toggle */}
           <div className="inline-flex bg-white/10 rounded-full p-1 mb-0">
             {[
               { id: 'new', label: 'New Request' },
@@ -158,14 +162,10 @@ export default function MeetingsPage() {
               </button>
             ))}
           </div>
-        </div>
-      </div>
-
-      <main className="max-w-5xl mx-auto px-6 py-8">
 
         {/* New Request tab */}
         {activeTab === 'new' && (
-          <div className="max-w-3xl">
+          <div>
             {success ? (
               <div className="bg-white border border-[#E5E7EB] rounded-xl p-10 text-center shadow-sm">
                 <div className="w-12 h-12 bg-[#FEE2E2] rounded-full flex items-center justify-center mx-auto mb-4">

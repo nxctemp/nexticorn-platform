@@ -36,7 +36,7 @@ export default function MemberNav() {
             </Link>
           ))}
           <form action="/api/auth/signout" method="POST" className="flex items-center">
-            <button type="submit" className="text-sm border border-[#E5E7EB] text-[#111111] px-4 py-2 rounded-lg hover:bg-[#F6ACC1] hover:border-[#F6ACC1] transition-colors leading-none">
+            <button type="submit" className="text-sm border border-[#F6ACC1] text-[#111111] px-4 py-2 rounded-lg hover:border-[#E61952] hover:text-white hover:bg-[#E61952] transition-colors leading-none">
               Sign out
             </button>
           </form>

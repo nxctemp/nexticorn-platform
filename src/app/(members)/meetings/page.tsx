@@ -144,23 +144,25 @@ export default function MeetingsPage() {
       <main className="max-w-5xl mx-auto px-6 py-8">
 
           {/* Pill Toggle */}
-           <div className="inline-flex border-2 border-[#E61952] rounded-full p-1 mb-6">
-          {[
-            { id: 'new', label: 'New Request' },
-            { id: 'history', label: `My Requests${requests.length > 0 ? ` (${requests.length})` : ''}` },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as 'new' | 'history')}
-              className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                activeTab === tab.id
-                  ? 'bg-[#E61952] text-white'
-                  : 'text-[#E61952] hover:bg-[#FEE2E2]'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex border-2 border-[#E61952] rounded-full p-1 mb-6">
+            {[
+              { id: 'new', label: 'New Request' },
+              { id: 'history', label: `My Requests${requests.length > 0 ? ` (${requests.length})` : ''}` },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as 'new' | 'history')}
+                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                  activeTab === tab.id
+                    ? 'bg-[#E61952] text-white'
+                    : 'text-[#E61952] hover:bg-[#FEE2E2]'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* New Request tab */}

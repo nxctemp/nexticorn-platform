@@ -25,59 +25,28 @@ export default async function DashboardPage() {
   const firstName = profile?.full_name?.split(' ')[0] ?? 'Member'
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
+    <div className="min-h-screen bg-[#F7F7F8]">
       <MemberNav />
 
-      {/* Editorial header */}
-      <div className="bg-[#111111] px-6 pt-10 pb-0">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-start justify-between mb-6">
-            <div>
-              <p className="text-[#E61952] text-xs font-medium uppercase tracking-[0.2em] mb-3">
-                Member Intelligence Portal
-              </p>
-              <h1 style={{fontFamily: 'var(--font-playfair)'}} className="text-5xl font-black text-white leading-none mb-2">
-                Good morning,<br />
-                <span className="text-[#E61952] italic">{firstName}.</span>
-              </h1>
-              <p className="text-[#7F7F7F] text-sm mt-3">
-                {profile?.company ?? ''}{profile?.job_title ? ` · ${profile.job_title}` : ''}
-              </p>
-            </div>
-            <div className="text-right shrink-0 ml-8">
-              <span className="inline-block text-xs px-3 py-1.5 rounded-full border border-[#E61952] text-[#E61952] font-medium capitalize">
-                {tier} member
-              </span>
-              <p className="text-[#444] text-xs mt-2 font-mono">
-                {new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
-              </p>
-            </div>
+      {/* Welcome header */}
+      <div className="bg-[#111111] px-6 py-8">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <div>
+            <p className="text-[#E61952] text-xs font-medium uppercase tracking-widest mb-1">Member Dashboard</p>
+            <h1 className="text-2xl font-semibold text-white">Welcome back, {firstName}</h1>
+            <p className="text-[#7F7F7F] text-sm mt-0.5">
+              {profile?.company ?? ''}{profile?.job_title ? ` · ${profile.job_title}` : ''}
+            </p>
           </div>
-
-          {/* Divider line — Economist style */}
-          <div className="border-t border-[#E61952] mb-0" />
-
-          {/* Stats bar */}
-          <div className="grid grid-cols-3 divide-x divide-white/10 -mx-0">
-            {[
-              { value: `${content?.length ?? 0}`, label: 'Updates this quarter', color: 'text-[#E61952]' },
-              { value: '6,500+', label: 'Meetings facilitated since 2018', color: 'text-[#4472C4]' },
-              { value: '5', label: 'Annual summits held', color: 'text-white' },
-            ].map((stat) => (
-              <div key={stat.label} className="px-6 py-5">
-                <div style={{fontFamily: 'var(--font-playfair)'}} className={`text-4xl font-black ${stat.color}`}>
-                  {stat.value}
-                </div>
-                <div className="text-[#7F7F7F] text-xs mt-1 leading-snug">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <span className="text-xs px-3 py-1.5 rounded-full border border-[#E61952] text-[#E61952] font-medium capitalize">
+            {tier} member
+          </span>
         </div>
       </div>
 
       <main className="max-w-5xl mx-auto px-6 py-8">
 
-        {/* Quick nav cards */}
+        {/* Quick links */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           {[
             {
@@ -108,8 +77,8 @@ export default async function DashboardPage() {
             },
             {
               href: '/billing',
-              label: 'Membership & Billing',
-              sub: 'Invoices, tier & renewal',
+              label: 'Billing',
+              sub: 'Invoices & membership details',
               cta: 'View details',
               accent: '#111111',
               bg: '#F3F4F6',
@@ -123,17 +92,12 @@ export default async function DashboardPage() {
             <Link
               key={card.href}
               href={card.href}
-              className="group bg-white border border-[#E5E7EB] rounded-xl p-5 hover:shadow-lg transition-all hover:-translate-y-0.5 duration-200"
+              className="group bg-white border border-[#E5E7EB] rounded-xl p-5 hover:shadow-md hover:border-transparent transition-all duration-200"
             >
-              <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
-                style={{ background: card.bg, color: card.accent }}
-              >
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: card.bg, color: card.accent }}>
                 {card.icon}
               </div>
-              <div style={{fontFamily: 'var(--font-playfair)'}} className="text-[#111111] font-bold text-base mb-1 group-hover:text-[#E61952] transition-colors">
-                {card.label}
-              </div>
+              <div className="text-[#111111] font-semibold text-sm mb-1 group-hover:text-[#E61952] transition-colors">{card.label}</div>
               <div className="text-[#9CA3AF] text-xs mb-4 leading-relaxed">{card.sub}</div>
               <div className="flex items-center gap-1 text-xs font-medium" style={{ color: card.accent }}>
                 {card.cta}
@@ -145,41 +109,32 @@ export default async function DashboardPage() {
           ))}
         </div>
 
-        {/* Recent content — editorial list */}
+        {/* Recent content */}
         <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden">
           <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB]">
-            <h2 style={{fontFamily: 'var(--font-playfair)'}} className="text-lg font-bold text-[#111111]">
-              Latest Intelligence
-            </h2>
-            <Link href="/news" className="text-xs text-[#E61952] hover:text-[#C01544] font-medium uppercase tracking-wide">
-              View all →
-            </Link>
+            <h2 className="text-sm font-semibold text-[#111111]">Latest Intelligence</h2>
+            <Link href="/news" className="text-xs text-[#E61952] hover:text-[#C01544] font-medium">View all →</Link>
           </div>
-
           {content && content.length > 0 ? (
             <div className="divide-y divide-[#F3F4F6]">
               {content.map((item, index) => (
                 <Link
                   key={item.id}
                   href={`/news/${item.id}`}
-                  className="flex items-center gap-5 px-6 py-5 hover:bg-[#FAFAF8] transition-colors group"
+                  className="flex items-center gap-5 px-6 py-4 hover:bg-[#FAFAF8] transition-colors group"
                 >
-                  <div className="shrink-0">
-                    <span style={{fontFamily: 'var(--font-playfair)'}} className="text-3xl font-black text-[#E5E7EB] group-hover:text-[#F6ACC1] transition-colors">
+                  <div className="shrink-0 w-6 text-center">
+                    <span className="text-sm font-bold text-[#D1D5DB] group-hover:text-[#E61952] transition-colors">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div style={{fontFamily: 'var(--font-playfair)'}} className="text-[#111111] font-semibold text-base group-hover:text-[#E61952] transition-colors leading-snug">
-                      {item.title}
-                    </div>
-                    <div className="text-[#9CA3AF] text-xs mt-1 truncate">{item.description}</div>
+                    <div className="text-[#111111] text-sm font-medium group-hover:text-[#E61952] transition-colors leading-snug">{item.title}</div>
+                    <div className="text-[#9CA3AF] text-xs mt-0.5 truncate">{item.description}</div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
                     <span className={`text-xs px-2.5 py-1 rounded-full font-medium uppercase tracking-wide ${
-                      item.content_type === 'video'
-                        ? 'bg-[#EBF0FB] text-[#4472C4]'
-                        : 'bg-[#FEE2E2] text-[#E61952]'
+                      item.content_type === 'video' ? 'bg-[#EBF0FB] text-[#4472C4]' : 'bg-[#FEE2E2] text-[#E61952]'
                     }`}>
                       {item.content_type}
                     </span>
@@ -197,21 +152,15 @@ export default async function DashboardPage() {
 
         {/* Upgrade banner */}
         {tier !== 'institutional' && (
-          <div className="mt-6 relative bg-[#111111] rounded-xl p-6 overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#E61952] opacity-10 rounded-full -translate-y-8 translate-x-8" />
-            <div className="absolute bottom-0 right-16 w-20 h-20 bg-[#4472C4] opacity-10 rounded-full translate-y-6" />
-            <div className="relative flex items-center justify-between">
-              <div>
-                <div className="text-[#E61952] text-xs font-medium uppercase tracking-[0.2em] mb-2">Institutional Access</div>
-                <h3 style={{fontFamily: 'var(--font-playfair)'}} className="text-white text-xl font-bold mb-1">
-                  Unlock the full picture.
-                </h3>
-                <p className="text-[#7F7F7F] text-sm">LP-level research, priority introductions, exclusive roundtables.</p>
-              </div>
-              <Link href="/billing" className="shrink-0 ml-6 bg-[#E61952] text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-[#C01544] transition-colors whitespace-nowrap">
-                Learn more
-              </Link>
+          <div className="mt-6 bg-[#111111] rounded-xl p-6 flex items-center justify-between">
+            <div>
+              <div className="text-[#E61952] text-xs font-medium uppercase tracking-widest mb-1">Upgrade</div>
+              <div className="text-white font-semibold">Unlock Institutional access</div>
+              <div className="text-[#7F7F7F] text-sm mt-0.5">LP-level research, priority introductions, exclusive roundtables.</div>
             </div>
+            <Link href="/billing" className="shrink-0 ml-6 bg-[#E61952] text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-[#C01544] transition-colors">
+              Learn more
+            </Link>
           </div>
         )}
       </main>

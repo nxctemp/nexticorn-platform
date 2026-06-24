@@ -9,6 +9,7 @@ const links = [
   { href: '/news', label: 'News & Updates' },
   { href: '/meetings', label: 'Request Meeting' },
   { href: '/billing', label: 'Billing' },
+  { href: '/profile', label: 'Profile' },
 ]
 
 export default function MemberNav() {
@@ -18,7 +19,7 @@ export default function MemberNav() {
     <nav className="border-b border-[#E5E7EB] bg-white px-6 py-4">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <Link href="/dashboard">
-          <img src="/images/nxclogo.png" alt="Nexticorn" className="h-14 w-auto" />
+          <Image src="/images/nxclogo.png" alt="Nexticorn" width={100} height={50} />
         </Link>
         <div className="flex items-center gap-6">
           {links.map((link) => (

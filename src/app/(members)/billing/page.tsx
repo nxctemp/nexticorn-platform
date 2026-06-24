@@ -1,6 +1,8 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import MemberNav from '@/components/layout/MemberNav'
+import Link from 'next/link'
+
 
 export default async function BillingPage() {
   const supabase = await createClient()
@@ -70,7 +72,7 @@ export default async function BillingPage() {
             <p className="text-[#6B7280] text-sm mb-4">
               Access exclusive LP-level research, institutional deal flow, and priority introductions.
             </p>
-            <a href="mailto:membership@nexticorn.id" className="inline-block bg-[#E61952] text-white rounded-lg px-4 py-2 text-sm font-medium">Enquire about institutional access</a>
+            <Link href="/upgrade" className="inline-block bg-[#E61952] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-[#C01544] transition-colors">Upgrade membership</Link>
           </div>
         )}
 

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
   --brand: #E61952;
   --brand-dark: #C01544;
   --bg: #FFFFFF;
   --bg-subtle: #F7F7F8;
-  --bg-card: #FFFFFF;
   --border: #E5E7EB;
-  --border-hover: #D1D5DB;
   --text-primary: #111111;
   --text-secondary: #6B7280;
   --text-tertiary: #9CA3AF;
@@ -16,6 +16,10 @@
 body {
   background: var(--bg);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  font-family: var(--font-inter), -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-editorial {
+  font-family: var(--font-playfair), Georgia, serif;
 }

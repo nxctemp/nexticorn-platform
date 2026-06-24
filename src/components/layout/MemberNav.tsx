@@ -18,7 +18,7 @@ export default function MemberNav() {
     <nav className="border-b border-[#E5E7EB] bg-white px-6 py-4">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <Link href="/dashboard">
-          <Image src="/images/nxclogo.png" alt="Nexticorn" width={160} height={40} className="mx-auto" />
+          <Image src="/images/nxclogo.png" alt="Nexticorn" width={120} height={30} className="mx-auto" />
         </Link>
         <div className="flex items-center gap-6">
           {links.map((link) => (

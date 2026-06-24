@@ -35,9 +35,9 @@ export default function MemberNav() {
               {link.label}
             </Link>
           ))}
-          <form action="/api/auth/signout" method="POST">
-            <button type="submit" className="text-sm text-[#9CA3AF] hover:text-[#111111]">
-              Sign out
+          <form action="/api/auth/signout" method="POST" className="flex items-center">
+            <button type="submit" className="text-sm text-[#9CA3AF] hover:text-[#111111] leading-none">
+            Sign out
             </button>
           </form>
         </div>

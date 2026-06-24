@@ -34,7 +34,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[#F7F7F8] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-         <img src="/images/nxclogo.png" alt="Nexticorn" className="h-14 w-auto" />
+         <img src="/images/nxclogo.png" alt="Nexticorn" className="h-14 w-auto mx-auto block" />
           <p className="text-[#6B7280] mt-2 text-sm">Member portal</p>
         </div>
 

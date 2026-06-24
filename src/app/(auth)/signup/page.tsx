@@ -75,7 +75,7 @@ export default function SignupPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-[#111111]">
-            Nexti<span className="text-[#E61952]">corn</span>
+            <img src="/images/nxclogo.png" alt="Nexticorn" className="h-14 w-auto mx-auto block" />
           </h1>
           <p className="text-[#6B7280] mt-2 text-sm">Request membership access</p>
         </div>

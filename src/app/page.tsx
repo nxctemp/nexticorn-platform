@@ -67,9 +67,9 @@ export default function HomePage() {
             <Link href="/login" className="text-sm border border-[#F6ACC1] text-[#111111] px-4 py-2 rounded-lg hover:bg-[#F6ACC1] hover:border-[#F6ACC1] transition-colors">Sign in</Link>
             <Link href="/signup" className="text-sm bg-[#E61952] text-white px-4 py-2 rounded-lg hover:bg-[#C01544] transition-colors">Become a Member</Link>
           </div>
-          <div className="flex md:hidden items-center gap-3">
-            <Link href="/login" className="text-sm border border-[#F6ACC1] text-[#111111] px-3 py-1.5 rounded-lg">Sign in</Link>
-            <Link href="/signup" className="text-sm bg-[#E61952] text-white px-3 py-1.5 rounded-lg">Become a Member</Link>
+          <div className="flex md:hidden items-center gap-2">
+            <Link href="/login" className="text-sm border border-[#F6ACC1] text-[#111111] px-3 py-1.5 rounded-lg whitespace-nowrap">Sign in</Link>
+            <Link href="/signup" className="text-sm bg-[#E61952] text-white px-3 py-1.5 rounded-lg whitespace-nowrap">Join</Link>
           </div>
         </div>
       </nav>
@@ -282,36 +282,24 @@ export default function HomePage() {
             <p className="text-[#E61952] text-sm font-medium uppercase tracking-widest mb-4">Leadership</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#111111] mb-10">Board of Nexticorn</h2>
 
-            {/* Chairman */}
-            <div className="flex justify-center mb-8">
-              <button
-                onClick={() => setSelectedMember(boardMembers[0])}
-                className="bg-white border border-[#E5E7EB] rounded-xl px-8 py-5 hover:border-[#E61952] hover:shadow-md transition-all group"
-              >
-                <div className="w-16 h-16 bg-[#FEE2E2] rounded-full flex items-center justify-center text-[#E61952] font-bold text-2xl mx-auto mb-3 group-hover:bg-[#E61952] group-hover:text-white transition-colors">
-                  R
-                </div>
-                <div className="text-[#111111] font-semibold">Rudiantara</div>
-                <div className="text-[#6B7280] text-sm mt-0.5">Chairman</div>
-                <div className="text-[#E61952] text-xs mt-2">View profile →</div>
-              </button>
-            </div>
-
-            {/* Governing board */}
-            <div className="text-xs text-[#9CA3AF] uppercase tracking-wide mb-4">Governing Board</div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-              {boardMembers.slice(1).map((member) => (
+{/* All board members — uniform grid */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
+              {boardMembers.map((member, index) => (
                 <button
                   key={member.name}
                   onClick={() => setSelectedMember(member)}
-                  className="bg-white border border-[#E5E7EB] rounded-xl p-5 hover:border-[#E61952] hover:shadow-md transition-all group text-center"
+                  className="bg-white border border-[#E5E7EB] rounded-xl p-5 hover:border-[#E61952] hover:shadow-md transition-all group text-center flex flex-col items-center"
                 >
-                  <div className="w-12 h-12 bg-[#F3F4F6] rounded-full flex items-center justify-center text-[#6B7280] font-semibold text-sm mb-3 mx-auto group-hover:bg-[#FEE2E2] group-hover:text-[#E61952] transition-colors">
+                  <div className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg mb-3 transition-colors ${
+                    index === 0
+                      ? 'bg-[#FEE2E2] text-[#E61952] group-hover:bg-[#E61952] group-hover:text-white'
+                      : 'bg-[#F3F4F6] text-[#6B7280] group-hover:bg-[#FEE2E2] group-hover:text-[#E61952]'
+                  }`}>
                     {member.initial}
                   </div>
-                  <div className="text-[#111111] font-medium text-sm">{member.name}</div>
+                  <div className="text-[#111111] font-semibold text-sm">{member.name}</div>
                   <div className="text-[#9CA3AF] text-xs mt-0.5">{member.role}</div>
-                  <div className="text-[#E61952] text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View profile →</div>
+                  <div className="text-[#E61952] text-xs mt-2">View profile →</div>
                 </button>
               ))}
             </div>

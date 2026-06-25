@@ -208,13 +208,13 @@ export default function SignupPage() {
             </button>
             <h1 className="text-2xl font-semibold text-[#111111] mb-1">Choose your membership</h1>
             <p className="text-[#6B7280] text-sm mb-6">Select the tier that best fits your needs.</p>
-            <div className="space-y-4">
+            <div className="space-y-4 mb-6">
               {tiers.map((tier) => (
-                <button
+                <div
                   key={tier.id}
-                  onClick={() => handleTierSelect(tier.id)}
-                  className={`w-full text-left bg-white border-2 rounded-xl p-6 hover:border-[#E61952] hover:shadow-md transition-all relative ${
-                    tier.recommended ? 'border-[#E61952]' : 'border-[#E5E7EB]'
+                  onClick={() => setFormData({ ...formData, tier: tier.id })}
+                  className={`w-full text-left bg-white border-2 rounded-xl p-6 cursor-pointer hover:shadow-md transition-all relative ${
+                    formData.tier === tier.id ? 'border-[#E61952]' : 'border-[#E5E7EB] hover:border-[#F6ACC1]'
                   }`}
                 >
                   {tier.recommended && (
@@ -222,22 +222,43 @@ export default function SignupPage() {
                       Recommended
                     </div>
                   )}
-                  <div className="text-xs text-[#9CA3AF] uppercase tracking-widest mb-1">{tier.name}</div>
-                  <div className="text-2xl font-bold text-[#111111] mb-0.5">{tier.price}</div>
-                  <div className="text-xs text-[#9CA3AF] mb-4">{tier.period}</div>
-                  <ul className="space-y-2">
-                    {tier.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-[#6B7280]">
-                        <div className="w-4 h-4 bg-[#FEE2E2] rounded-full flex items-center justify-center shrink-0">
-                          <div className="w-1.5 h-1.5 bg-[#E61952] rounded-full" />
-                        </div>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </button>
+                  <div className="flex items-start gap-4">
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                      formData.tier === tier.id ? 'border-[#E61952] bg-[#E61952]' : 'border-[#D1D5DB]'
+                    }`}>
+                      {formData.tier === tier.id && <div className="w-2 h-2 bg-white rounded-full" />}
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-xs text-[#9CA3AF] uppercase tracking-widest mb-1">{tier.name}</div>
+                      <div className="text-2xl font-bold text-[#111111] mb-0.5">{tier.price}</div>
+                      <div className="text-xs text-[#9CA3AF] mb-4">{tier.period}</div>
+                      <ul className="space-y-2">
+                        {tier.features.map((f) => (
+                          <li key={f} className="flex items-center gap-2 text-sm text-[#6B7280]">
+                            <div className="w-4 h-4 bg-[#FEE2E2] rounded-full flex items-center justify-center shrink-0">
+                              <div className="w-1.5 h-1.5 bg-[#E61952] rounded-full" />
+                            </div>
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
+
+            {!formData.tier && (
+              <p className="text-[#9CA3AF] text-xs text-center mb-4">Please select a membership tier to continue</p>
+            )}
+
+            <button
+              onClick={() => formData.tier && setStep('payment')}
+              disabled={!formData.tier}
+              className="w-full bg-[#E61952] text-white rounded-lg py-3 text-sm font-medium hover:bg-[#C01544] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            >
+              Continue to payment →
+            </button>
           </div>
         )}
 

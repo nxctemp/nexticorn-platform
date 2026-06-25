@@ -23,7 +23,7 @@ export default function HomePage() {
           {/* Mobile nav */}
           <div className="flex md:hidden items-center gap-3">
             <Link href="/login" className="text-sm border border-[#F6ACC1] text-[#111111] px-3 py-1.5 rounded-lg">Sign in</Link>
-            <Link href="/signup" className="text-sm bg-[#E61952] text-white px-3 py-1.5 rounded-lg">Join</Link>
+            <Link href="/signup" className="text-sm bg-[#E61952] text-white px-3 py-1.5 rounded-lg">Become a Member</Link>
           </div>
         </div>
       </nav>

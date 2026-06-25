@@ -47,7 +47,7 @@ export default async function DashboardPage() {
       <main className="max-w-5xl mx-auto px-6 py-8">
 
         {/* Quick links */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
           {[
             {
               href: '/news',

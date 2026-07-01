@@ -77,18 +77,9 @@ export default function HomePage() {
       {/* Hero — with faded image on right */}
       <section className="bg-[#111111] text-white relative overflow-hidden min-h-[520px] flex items-center">
         {/* Placeholder image right side with fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden md:block">
+         <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden md:block">
           <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/60 to-transparent z-10" />
-          <div className="w-full h-full bg-gradient-to-br from-[#1a1a2e] via-[#2d1b3d] to-[#111111] flex items-center justify-center">
-            <div className="text-center opacity-20">
-              <div className="w-32 h-32 border-2 border-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <p className="text-white text-sm">Hero image</p>
-            </div>
-          </div>
+          <img src="/images/Hero.jpg" alt="Nexticorn Summit" className="w-full h-full object-cover object-center" />
         </div>
 
         <div className="relative z-10 px-6 py-16 md:py-24 w-full">
@@ -141,14 +132,8 @@ export default function HomePage() {
             </div>
 
             {/* About image placeholder */}
-            <div className="w-full h-64 md:h-80 bg-gradient-to-br from-[#F3F4F6] to-[#E5E7EB] rounded-2xl flex items-center justify-center border border-[#E5E7EB]">
-              <div className="text-center">
-                <svg className="w-12 h-12 text-[#D1D5DB] mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-[#9CA3AF] text-sm">About image placeholder</p>
-                <p className="text-[#D1D5DB] text-xs mt-1">Recommended: 1200 × 600px</p>
-              </div>
+             <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden">
+              <img src="/images/About_Us.jpg" alt="Nexticorn team" className="w-full h-full object-cover object-center" />
             </div>
           </Section>
         </div>
@@ -165,17 +150,8 @@ export default function HomePage() {
             </p>
 
             {/* Summit image placeholder */}
-            <div className="w-full h-56 md:h-72 bg-gradient-to-br from-[#1a1a2e] via-[#2d1b3d] to-[#111111] rounded-2xl flex items-center justify-center mb-10 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                <div className="w-full h-full" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, #E61952 0%, transparent 50%), radial-gradient(circle at 80% 50%, #4472C4 0%, transparent 50%)'}} />
-              </div>
-              <div className="text-center relative z-10">
-                <svg className="w-12 h-12 text-white/30 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-white/40 text-sm">Summit image placeholder</p>
-                <p className="text-white/20 text-xs mt-1">Recommended: 1200 × 600px</p>
-              </div>
+            <div className="w-full h-56 md:h-72 rounded-2xl overflow-hidden mb-10">
+              <img src="/images/Summit.jpg" alt="Nexticorn Summit" className="w-full h-full object-cover object-center" />
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -206,14 +182,8 @@ export default function HomePage() {
             </p>
 
             {/* Membership image placeholder */}
-            <div className="w-full h-48 md:h-64 bg-gradient-to-br from-[#FEE2E2] to-[#F6ACC1] rounded-2xl flex items-center justify-center mb-10 border border-[#FECACA]">
-              <div className="text-center">
-                <svg className="w-12 h-12 text-[#E61952]/30 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-[#E61952]/50 text-sm">Membership image placeholder</p>
-                <p className="text-[#E61952]/30 text-xs mt-1">Recommended: 1200 × 500px</p>
-              </div>
+            <div className="w-full h-48 md:h-64 rounded-2xl overflow-hidden mb-10">
+              <img src="/images/Membership.jpg" alt="Nexticorn membership networking" className="w-full h-full object-cover object-center" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-10">
